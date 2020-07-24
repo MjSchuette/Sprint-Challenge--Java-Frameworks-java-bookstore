@@ -65,7 +65,7 @@ public class BookServiceImplTest
     @Test(expected = ResourceNotFoundException.class)
     public void notFindBookById()
     {
-        assertEquals(" test Flatterland", bookService.findBookById(999).getTitle());
+        assertEquals("Flatterland", bookService.findBookById(999).getTitle());
     }
 
     @Test
