@@ -79,58 +79,63 @@ public class BookControllerTest
          * Note that since we are only testing bookstore data, you only need to mock up bookstore data.
          * You do NOT need to mock up user data. You can. It is not wrong, just extra work.
          */
-        Author a1 = new Author("John", "Mitchell");
-        Author a2 = new Author("Dan", "Brown");
-        Author a3 = new Author("Jerry", "Poe");
-        Author a4 = new Author("Wells", "Teague");
-        Author a5 = new Author("George", "Gallinger");
-        Author a6 = new Author("Ian", "Stewart");
+        bookList  = new ArrayList<>();
 
-        a1 = authorService.save(a1);
-        a2 = authorService.save(a2);
-        a3 = authorService.save(a3);
-        a4 = authorService.save(a4);
-        a5 = authorService.save(a5);
-        a6 = authorService.save(a6);
+        Author a1 = new Author("John", "Mitchell");
+        a1.setAuthorid(1);
+        Author a2 = new Author("Dan", "Brown");
+        a2.setAuthorid(2);
+        Author a3 = new Author("Jerry", "Poe");
+        a3.setAuthorid(3);
+        Author a4 = new Author("Wells", "Teague");
+        a4.setAuthorid(4);
+        Author a5 = new Author("George", "Gallinger");
+        a5.setAuthorid(5);
+        Author a6 = new Author("Ian", "Stewart");
+        a6.setAuthorid(6);
+
 
         Section s1 = new Section("Fiction");
-        Section s2 = new Section("Technology");
+        s1.setSectionid(11);
         Section s3 = new Section("Travel");
+        s3.setSectionid(31);
         Section s4 = new Section("Business");
-        Section s5 = new Section("Religion");
+        s4.setSectionid(41);
 
-        s1 = sectionService.save(s1);
-        s2 = sectionService.save(s2);
-        s3 = sectionService.save(s3);
-        s4 = sectionService.save(s4);
-        s5 = sectionService.save(s5);
 
         Book b1 = new Book("Flatterland", "9780738206752", 2001, s1);
         b1.getWrotes()
                 .add(new Wrote(a6, new Book()));
-        b1 = bookService.save(b1);
+        b1.setBookid(10);
 
         Book b2 = new Book("Digital Fortess", "9788489367012", 2007, s1);
         b2.getWrotes()
                 .add(new Wrote(a2, new Book()));
-        b2 = bookService.save(b2);
+        b2.setBookid(20);
 
         Book b3 = new Book("The Da Vinci Code", "9780307474278", 2009, s1);
         b3.getWrotes()
                 .add(new Wrote(a2, new Book()));
-        b3 = bookService.save(b3);
+        b3.setBookid(30);
 
         Book b4 = new Book("Essentials of Finance", "1314241651234", 0, s4);
         b4.getWrotes()
                 .add(new Wrote(a3, new Book()));
         b4.getWrotes()
                 .add(new Wrote(a5, new Book()));
-        b4 = bookService.save(b4);
+        b4.setBookid(40);
+
 
         Book b5 = new Book("Calling Texas Home", "1885171382134", 2000, s3);
         b5.getWrotes()
                 .add(new Wrote(a4, new Book()));
-        b5 = bookService.save(b5);
+        b5.setBookid(50);
+
+        bookList.add(b1);
+        bookList.add(b2);
+        bookList.add(b3);
+        bookList.add(b4);
+        bookList.add(b5);
     }
 
     @After
