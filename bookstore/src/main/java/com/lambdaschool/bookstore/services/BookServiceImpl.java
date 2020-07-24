@@ -1,5 +1,6 @@
 package com.lambdaschool.bookstore.services;
 
+import com.lambdaschool.bookstore.exceptions.ResourceNotFoundException;
 import com.lambdaschool.bookstore.models.Author;
 import com.lambdaschool.bookstore.models.Book;
 import com.lambdaschool.bookstore.models.Wrote;
@@ -133,7 +134,7 @@ public class BookServiceImpl
             {
                 Author addAuthor = authorrepos.findById(w.getAuthor()
                                                                 .getAuthorid())
-                        .orElseThrow(() -> new EntityNotFoundException("Author Id " + w.getAuthor()
+                        .orElseThrow(() -> new ResourceNotFoundException("Author Id " + w.getAuthor()
                                 .getAuthorid() + " Not Found!"));
                 currentBook.getWrotes()
                         .add(new Wrote(addAuthor, currentBook));

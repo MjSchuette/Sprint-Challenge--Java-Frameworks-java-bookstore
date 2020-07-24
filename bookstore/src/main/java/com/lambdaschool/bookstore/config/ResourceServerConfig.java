@@ -54,6 +54,7 @@ public class ResourceServerConfig
                 .permitAll()
                 .antMatchers("/users/**",
                              "/useremails/**",
+                             "/books/**",
                              "/oauth/revoke-token",
                              "/logout")
                 .authenticated()
