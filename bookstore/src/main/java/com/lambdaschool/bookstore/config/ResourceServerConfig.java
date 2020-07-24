@@ -54,11 +54,10 @@ public class ResourceServerConfig
                 .permitAll()
                 .antMatchers("/users/**",
                              "/useremails/**",
-//                             "/books/**",
                              "/oauth/revoke-token",
                              "/logout")
                 .authenticated()
-                .antMatchers("/roles/**")
+                .antMatchers("/roles/**", "/books/book/**", "/books/books/**")
                 .hasAnyRole("ADMIN", "DATA")
                 .and()
                 .exceptionHandling()
