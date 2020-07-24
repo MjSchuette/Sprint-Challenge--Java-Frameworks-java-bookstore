@@ -34,10 +34,11 @@ public class BookServiceImplTest
     {
         MockitoAnnotations.initMocks(this);
 
-//        List<Book> myList = bookService.findAll();
-//
-//        for (Book b : myList) {
-//            System.out.println(b.getBookid() + " " + b.getTitle());
+        List<Book> myList = bookService.findAll();
+
+        for (Book b : myList) {
+            System.out.println(b.getBookid() + " " + b.getTitle());
+        }
     }
 
     @After
@@ -55,7 +56,7 @@ public class BookServiceImplTest
     @Test
     public void findBookById()
     {
-        assertEquals("Flatterland", bookService.findBookById(1).getTitle());
+        assertEquals("Flatterland", bookService.findBookById(26).getTitle());
     }
 
     @Test(expected = ResourceNotFoundException.class)
@@ -66,6 +67,7 @@ public class BookServiceImplTest
     @Test
     public void delete()
     {
+        bookService.delete(26);assertEquals(4, bookService.findAll().size());
     }
 
     @Test
