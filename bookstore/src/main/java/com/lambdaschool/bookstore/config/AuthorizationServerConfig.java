@@ -19,6 +19,8 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 public class AuthorizationServerConfig
         extends AuthorizationServerConfigurerAdapter
 {
+//        static final String CLIENT_ID = "OAUTHCLIENTID";
+//        static final String CLIENT_SECRET = "OAUTHCLIENTSECRET";
     /**
      * Client Id is the user name for the client application. It is read from the environment variable OAUTHCLIENTID
      */
